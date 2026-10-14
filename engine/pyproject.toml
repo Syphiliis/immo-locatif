@@ -1,0 +1,13 @@
+[project]
+name = "immo-locatif-engine"
+version = "0.1.0"
+description = "Moteur de rentabilité locative et fiche de données ouvertes du plugin immo-locatif"
+requires-python = ">=3.11"
+dependencies = ["httpx", "openpyxl"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

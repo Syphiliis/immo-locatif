@@ -1,0 +1,340 @@
+[
+ {
+  "list_id": 9000000001,
+  "subject": "Maison de ville 92 m² Fictibourg",
+  "body": "",
+  "price": [
+   80000
+  ],
+  "first_publication_date": "2026-09-01 10:00:00",
+  "location": {
+   "city": "Fictibourg",
+   "zipcode": "99001",
+   "lat": 48.0001,
+   "lng": 2.0001,
+   "source": "city",
+   "is_shape": true,
+   "city_label": "Fictibourg 99001",
+   "department_id": "99",
+   "provider": "fictif",
+   "type": "city"
+  },
+  "owner": {
+   "type": "pro",
+   "store_id": "",
+   "user_id": "fictif",
+   "no_salesmen": false
+  },
+  "attributes": [
+   {
+    "key": "real_estate_type",
+    "value": "1"
+   },
+   {
+    "key": "square",
+    "value": "92"
+   },
+   {
+    "key": "energy_rate",
+    "value": "d"
+   },
+   {
+    "key": "property_tax",
+    "value": "900"
+   },
+   {
+    "key": "old_price",
+    "value": "90000"
+   },
+   {
+    "key": "fees_at_the_expanse_of",
+    "value": "seller"
+   },
+   {
+    "key": "price_except_fees",
+    "value": "80000"
+   },
+   {
+    "key": "fees_price",
+    "value": "0"
+   },
+   {
+    "key": "immo_sell_type",
+    "value": "old"
+   }
+  ],
+  "url": "https://www.leboncoin.fr/ad/ventes_immobilieres/9000000001",
+  "price_cents": 8000000,
+  "index_date": "2026-09-01 10:00:00",
+  "ad_type": "offer",
+  "brand": "leboncoin",
+  "category_id": "9",
+  "category_name": "Ventes immobilières",
+  "status": "active",
+  "has_phone": true,
+  "counters": {},
+  "images": {
+   "nb_images": 0,
+   "urls": [],
+   "urls_large": [],
+   "urls_thumb": []
+  },
+  "options": {
+   "booster": false,
+   "gallery": false,
+   "urgent": false
+  }
+ },
+ {
+  "list_id": 9000000012,
+  "subject": "Maison de ville 100 m² Fictibourg",
+  "body": "",
+  "price": [
+   130000
+  ],
+  "first_publication_date": "2026-09-01 10:00:00",
+  "location": {
+   "city": "Fictibourg",
+   "zipcode": "99001",
+   "lat": 48.0008,
+   "lng": 2.0007,
+   "source": "city",
+   "is_shape": true
+  },
+  "owner": {
+   "type": "pro"
+  },
+  "attributes": [
+   {
+    "key": "real_estate_type",
+    "value": "1"
+   },
+   {
+    "key": "square",
+    "value": "100"
+   },
+   {
+    "key": "energy_rate",
+    "value": "d"
+   },
+   {
+    "key": "fees_at_the_expanse_of",
+    "value": "seller"
+   },
+   {
+    "key": "immo_sell_type",
+    "value": "old"
+   }
+  ]
+ },
+ {
+  "list_id": 9000000015,
+  "subject": "Maison avec grange 200 m²",
+  "body": "",
+  "price": [
+   40000
+  ],
+  "first_publication_date": "2026-09-01 10:00:00",
+  "location": {
+   "city": "Fictibourg",
+   "zipcode": "99001",
+   "lat": 48.0009,
+   "lng": 2.0008,
+   "source": "city",
+   "is_shape": true
+  },
+  "owner": {
+   "type": "pro"
+  },
+  "attributes": [
+   {
+    "key": "real_estate_type",
+    "value": "1"
+   },
+   {
+    "key": "square",
+    "value": "200"
+   },
+   {
+    "key": "energy_rate",
+    "value": "g"
+   },
+   {
+    "key": "fees_at_the_expanse_of",
+    "value": "seller"
+   },
+   {
+    "key": "immo_sell_type",
+    "value": "old"
+   }
+  ]
+ },
+ {
+  "list_id": 9000000016,
+  "subject": "Maison de ville 80 m²",
+  "body": "",
+  "price": [
+   75000
+  ],
+  "first_publication_date": "2026-09-01 10:00:00",
+  "location": {
+   "city": "Fictibourg",
+   "zipcode": "99001",
+   "lat": 48.001,
+   "lng": 2.0009,
+   "source": "city",
+   "is_shape": true
+  },
+  "owner": {
+   "type": "pro"
+  },
+  "attributes": [
+   {
+    "key": "real_estate_type",
+    "value": "1"
+   },
+   {
+    "key": "square",
+    "value": "80"
+   },
+   {
+    "key": "energy_rate",
+    "value": "d"
+   },
+   {
+    "key": "fees_at_the_expanse_of",
+    "value": "seller"
+   },
+   {
+    "key": "immo_sell_type",
+    "value": "old"
+   }
+  ]
+ },
+ {
+  "list_id": 9000000017,
+  "subject": "Immeuble de rapport 3 lots",
+  "body": "",
+  "price": [
+   95000
+  ],
+  "first_publication_date": "2026-09-01 10:00:00",
+  "location": {
+   "city": "Exempleville",
+   "zipcode": "99002",
+   "lat": 48.1005,
+   "lng": 2.1006,
+   "source": "city",
+   "is_shape": true
+  },
+  "owner": {
+   "type": "pro"
+  },
+  "attributes": [
+   {
+    "key": "real_estate_type",
+    "value": "5"
+   },
+   {
+    "key": "square",
+    "value": "150"
+   },
+   {
+    "key": "energy_rate",
+    "value": "e"
+   },
+   {
+    "key": "fees_at_the_expanse_of",
+    "value": "seller"
+   },
+   {
+    "key": "immo_sell_type",
+    "value": "old"
+   }
+  ]
+ },
+ {
+  "list_id": 9000000018,
+  "subject": "Maison de ville 65 m²",
+  "body": "",
+  "price": [
+   85000
+  ],
+  "first_publication_date": "2026-09-01 10:00:00",
+  "location": {
+   "city": "Fictibourg",
+   "zipcode": "99001",
+   "lat": 48.0011,
+   "lng": 2.001,
+   "source": "city",
+   "is_shape": true
+  },
+  "owner": {
+   "type": "pro"
+  },
+  "attributes": [
+   {
+    "key": "real_estate_type",
+    "value": "1"
+   },
+   {
+    "key": "square",
+    "value": "65"
+   },
+   {
+    "key": "energy_rate",
+    "value": "d"
+   },
+   {
+    "key": "fees_at_the_expanse_of",
+    "value": "seller"
+   },
+   {
+    "key": "immo_sell_type",
+    "value": "old"
+   }
+  ]
+ },
+ {
+  "list_id": 9000000019,
+  "subject": "Maison de ville avec boutique 110 m²",
+  "body": "",
+  "price": [
+   98000
+  ],
+  "first_publication_date": "2026-09-01 10:00:00",
+  "location": {
+   "city": "Fictibourg",
+   "zipcode": "99001",
+   "lat": 48.0012,
+   "lng": 2.0011,
+   "source": "city",
+   "is_shape": true
+  },
+  "owner": {
+   "type": "pro"
+  },
+  "attributes": [
+   {
+    "key": "real_estate_type",
+    "value": "1"
+   },
+   {
+    "key": "square",
+    "value": "110"
+   },
+   {
+    "key": "energy_rate",
+    "value": "e"
+   },
+   {
+    "key": "fees_at_the_expanse_of",
+    "value": "seller"
+   },
+   {
+    "key": "immo_sell_type",
+    "value": "old"
+   }
+  ]
+ }
+]

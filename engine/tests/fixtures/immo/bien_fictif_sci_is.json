@@ -1,0 +1,57 @@
+{
+  "_avertissement": "Bien FICTIF de test (SCI à l'IS, résultat positif) : aucune valeur réelle ni de marché.",
+  "departement": "77",
+  "prix_net_vendeur": 300000,
+  "frais_agence_acquereur": 0,
+  "autres_frais_acquisition": 4000,
+  "travaux": 0,
+  "mobilier": 0,
+  "financement": {
+    "emprunt_mode": "fixe",
+    "emprunt": 100000,
+    "taux_nominal": 0.035,
+    "duree_mois": 240,
+    "taux_assurance_annuel": 0.003,
+    "differe": {
+      "type": "aucun",
+      "mois": 0
+    }
+  },
+  "exploitation": {
+    "taxe_fonciere": 2500,
+    "pno": 300,
+    "copro_non_recuperable": 0,
+    "cfe": 0,
+    "comptable": 1200,
+    "gestion_taux": 0,
+    "gli_taux": 0,
+    "capex_taux": 0.05
+  },
+  "scenarios": {
+    "pessimiste": {
+      "loyer_mensuel_hc": 3600,
+      "vacance": 0.08
+    },
+    "realiste": {
+      "loyer_mensuel_hc": 4000,
+      "vacance": 0.05
+    },
+    "optimiste": {
+      "loyer_mensuel_hc": 4400,
+      "vacance": 0.03
+    }
+  },
+  "sci": {
+    "regime": "is",
+    "quote_part_foyer": 1.0,
+    "duree_premier_exercice_mois": 12,
+    "frais_acquisition": "incorpores",
+    "capital_libere": true,
+    "cca": {
+      "montant": 0,
+      "taux": 0
+    },
+    "distribution_annuelle": 10000,
+    "remboursement_cca_annuel": 0
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "_lisez_moi": {
+    "objet": "Foyer fiscal de l'investisseur, lu par le moteur avec --foyer (défaut : immo-data/foyer.json, ou $IMMO_DATA_DIR/foyer.json). Copier ce gabarit dans immo-data/foyer.json et remplacer chaque valeur FICTIVE. Chaque valeur porte sa source (avis d'imposition, déclaration 2044, tableau d'amortissement, bulletin de paie...) et sa date (AAAA-MM-JJ, date de la pièce ou de la mise à jour). Le foyer ne s'écrit jamais dans le JSON d'un bien : il vient d'ici. Aucune valeur n'est complétée par défaut : une clé absente arrête le moteur en la nommant, et une source ou une date encore « à remplir » est refusée (la date s'écrit AAAA-MM-JJ). Les valeurs ci-dessous sont FICTIVES (un premier achat, sans bien locatif).",
+    "cles": {
+      "annee": "Année des revenus étudiée (entier).",
+      "tmi": "Taux marginal d'imposition du foyer, en décimal (0, 0.11, 0.30, 0.41 ou 0.45) : avis d'imposition ou simulateur impots.gouv.fr.",
+      "revenus_activite_mensuels": "Revenus d'activité nets après impôt du foyer, €/mois (bulletins de paie, revenus d'indépendant).",
+      "loyers_existants_mensuels": "Loyers hors charges des biens déjà loués, €/mois, baux en cours.",
+      "revenus_fonciers_bruts_existants": "Revenus fonciers bruts annuels des biens déjà détenus, € (seuil du micro-foncier).",
+      "a_un_bien_ij": "true si le foyer détient déjà un logement au statut du bailleur privé (CGI art. 31 I-1° i ou j) : il exclut le micro-foncier.",
+      "ponderation_loyers": "Optionnelle : part des loyers que la banque retient pour le taux d'effort (0 à 1). Absente : celle du bien, sinon le défaut de params.json.",
+      "foncier_existant": "Foncier des biens détenus, année de référence : R recettes, I intérêts d'emprunt (et assurance), C autres charges déductibles, en €/an ; report_disponible : déficit foncier reportable, en € (déclaration 2044).",
+      "mensualites": "Crédits en cours, assurances comprises, €/mois : actuelle = somme des mensualités payées aujourd'hui ; future = la même une fois tous les prêts amortissables (prêt relais, différé ou phase d'anticipation terminés), égale à actuelle si rien ne change ; nb_prets = nombre de prêts. Le taux d'effort retient future."
+    },
+    "premier_achat": "Pour un premier investissement locatif : loyers_existants_mensuels, revenus_fonciers_bruts_existants et foncier_existant (R, I, C, report_disponible) valent 0, a_un_bien_ij vaut false ; mensualites ne compte que les crédits en cours (résidence principale, consommation)."
+  },
+  "annee": {
+    "valeur": 2026,
+    "source": "à remplir (année des revenus étudiée)",
+    "date": "à remplir"
+  },
+  "tmi": {
+    "valeur": 0.41,
+    "source": "à remplir (avis d'imposition ou simulateur impots.gouv.fr)",
+    "date": "à remplir"
+  },
+  "revenus_activite_mensuels": {
+    "valeur": 6200,
+    "source": "à remplir (bulletins de paie, revenus nets après impôt)",
+    "date": "à remplir"
+  },
+  "loyers_existants_mensuels": {
+    "valeur": 0,
+    "source": "à remplir (0 pour un premier achat)",
+    "date": "à remplir"
+  },
+  "revenus_fonciers_bruts_existants": {
+    "valeur": 0,
+    "source": "à remplir (0 pour un premier achat ; sinon déclaration 2044)",
+    "date": "à remplir"
+  },
+  "a_un_bien_ij": {
+    "valeur": false,
+    "source": "à remplir",
+    "date": "à remplir"
+  },
+  "foncier_existant": {
+    "R": {
+      "valeur": 0,
+      "source": "à remplir (0 pour un premier achat ; sinon déclaration 2044)",
+      "date": "à remplir"
+    },
+    "I": {
+      "valeur": 0,
+      "source": "à remplir (0 pour un premier achat ; sinon tableau d'amortissement)",
+      "date": "à remplir"
+    },
+    "C": {
+      "valeur": 0,
+      "source": "à remplir (0 pour un premier achat ; sinon déclaration 2044)",
+      "date": "à remplir"
+    },
+    "report_disponible": {
+      "valeur": 0,
+      "source": "à remplir (déclaration 2044, déficits reportables)",
+      "date": "à remplir"
+    }
+  },
+  "mensualites": {
+    "actuelle": {
+      "valeur": 950,
+      "source": "à remplir (tableau d'amortissement du prêt de la résidence principale)",
+      "date": "à remplir"
+    },
+    "future": {
+      "valeur": 950,
+      "source": "à remplir (égale à actuelle si aucune mensualité ne change)",
+      "date": "à remplir"
+    },
+    "nb_prets": {
+      "valeur": 1,
+      "source": "à remplir",
+      "date": "à remplir"
+    }
+  }
+}

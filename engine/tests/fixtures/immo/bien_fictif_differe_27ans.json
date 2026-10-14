@@ -1,0 +1,43 @@
+{
+  "_avertissement": "Bien FICTIF de test (exception HCSF 27 ans : 324 mois dont 24 de différé partiel) : aucune valeur réelle ni de marché.",
+  "departement": "77",
+  "prix_net_vendeur": 200000,
+  "frais_agence_acquereur": 0,
+  "autres_frais_acquisition": 3000,
+  "travaux": 30000,
+  "mobilier": 0,
+  "financement": {
+    "emprunt_mode": "prix_plus_travaux",
+    "taux_nominal": 0.037,
+    "duree_mois": 324,
+    "taux_assurance_annuel": 0.003,
+    "differe": {
+      "type": "partiel",
+      "mois": 24
+    }
+  },
+  "exploitation": {
+    "taxe_fonciere": 1500,
+    "pno": 180,
+    "copro_non_recuperable": 600,
+    "cfe": 0,
+    "comptable": 0,
+    "gestion_taux": 0,
+    "gli_taux": 0,
+    "capex_taux": 0.05
+  },
+  "scenarios": {
+    "pessimiste": {
+      "loyer_mensuel_hc": 1170,
+      "vacance": 0.1
+    },
+    "realiste": {
+      "loyer_mensuel_hc": 1300,
+      "vacance": 0.08
+    },
+    "optimiste": {
+      "loyer_mensuel_hc": 1430,
+      "vacance": 0.05
+    }
+  }
+}

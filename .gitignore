@@ -1,0 +1,6 @@
+immo-data/
+.venv/
+__pycache__/
+.pytest_cache/
+.DS_Store
+*.pyc

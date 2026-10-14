@@ -1,0 +1,19 @@
+{
+  "name": "immo-locatif",
+  "version": "0.1.0",
+  "description": "Étude d'un bien à vendre pour le louer, partout en France : fiche, données ouvertes, marché, travaux, potentiel, rentabilité et fiscalité (moteur Python), montages SCI à l'IS / nom propre, négociation, verdict sourcé.",
+  "author": {
+    "name": "Syphiliis"
+  },
+  "keywords": [
+    "immobilier",
+    "investissement locatif",
+    "rentabilité",
+    "SCI",
+    "DVF",
+    "négociation"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/Syphiliis/immo-locatif",
+  "homepage": "https://github.com/Syphiliis/immo-locatif"
+}

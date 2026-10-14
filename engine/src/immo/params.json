@@ -1,0 +1,471 @@
+{
+  "_notice": "Paramètres du moteur immo. Chaque feuille porte valeur, source et verifie_le (AAAA-MM-JJ), et a_verifier=true si la valeur n'est pas établie sur une source officielle. Les clés qui commencent par _ sont ignorées. Aucun montant du foyer ici. L'entrée dmto.departements.77 est un exemple sourcé de département ; les autres départements, et les communes de la zone locative (fiscal.bailleur_prive.zones, vide ici), s'ajoutent dans immo-data/params_local.json (ou $IMMO_DATA_DIR/params_local.json), fusionné par le moteur sur ce fichier. Fusion : les objets sans valeur se fusionnent clé par clé (un département s'ajoute à côté du 77) ; une feuille (objet portant valeur) remplace en entier la feuille de même chemin (la feuille zones locale liste donc toutes les communes utiles) ; chaque feuille locale porte valeur, source et verifie_le ; les clés en _ sont ignorées ; une valeur « À RENSEIGNER » est refusée.",
+  "dmto": {
+    "departements": {
+      "77": {
+        "taux_departemental": {
+          "valeur": 0.05,
+          "source": "DGFiP, table des taux DMTO applicables au 1er juin 2026 (https://www.impots.gouv.fr/sites/default/files/media/1_metier/3_partenaire/notaires/dmto/dmto_2026-06.pdf), ligne « 77 Seine-et-Marne » : 5,00 % (II de l'art. 116 de la LF 2025, hors primo-accédant) et 4,50 % (CGI art. 1594 D, primo-accédant). Le 5,00 % est le taux d'un investissement locatif. Relèvement temporaire : actes jusqu'au 31/03/2028 selon les sources consultées. Recoupé : notaires.fr (05/12/2025), taux global publié 6,31 % (6,3185 % tronqué).",
+          "verifie_le": "2026-10-03"
+        }
+      }
+    },
+    "taux_communal": {
+      "valeur": 0.012,
+      "source": "CGI art. 1584 (version en vigueur depuis le 01/01/2022, Légifrance) : taxe additionnelle « fixée à 1,20 % » ; impots.gouv.fr, page « Achat dans l'ancien » : « taxe additionnelle perçue au profit des communes de 1,20 % du prix d'achat ». Aucune commune de Seine-et-Marne n'a voté de réduction ni d'exonération (table DGFiP au 01/06/2026 : seules Lamentin et Tsingoni).",
+      "verifie_le": "2026-10-03"
+    },
+    "frais_assiette": {
+      "valeur": 0.0237,
+      "source": "CGI art. 1647 V a. (Légifrance) : prélèvement de l'État de 2,37 % en sus des droits perçus au profit des départements ; impots.gouv.fr, page « Achat dans l'ancien » : « 2,37 % du montant du droit départemental ». Assiette : le droit départemental, pas le prix.",
+      "verifie_le": "2026-10-03"
+    }
+  },
+  "hcsf": {
+    "taux_effort_max": {
+      "valeur": 0.35,
+      "source": "Décision n° D-HCSF-2021-7 du 29/09/2021 (NOR ECOT2128607S), art. 1er (i) : « le taux d'effort des emprunteurs de crédit immobilier n'excède pas 35 % », en vigueur le 01/01/2022. Modifiée par D-HCSF-2023-02 du 29/06/2023 et par la décision du 18/12/2023 (NOR ECOT2333556S, en vigueur le 01/01/2024), sans changement du 35 %. Assurance comprise : art. 4, charges annuelles d'emprunt = montants totaux dus au sens du 9° de l'art. L. 311-1 du code de la consommation. Maintien en 2026 établi par la presse spécialisée (réunions des 03/03, 09/06 et 15/09/2026) ; communiqués officiels economie.gouv.fr non ouverts (403).",
+      "verifie_le": "2026-10-03"
+    },
+    "duree_max_mois": {
+      "valeur": 300,
+      "source": "Même décision D-HCSF-2021-7, art. 1er (ii) : « la maturité du crédit n'excède pas 25 ans », soit 300 mois. L'exception à 27 ans avec différé est modélisée par hcsf.duree_max_differe_mois et hcsf.part_travaux_min_differe (décision du 18/12/2023 : travaux d'au moins 10 % du coût total).",
+      "verifie_le": "2026-10-03"
+    },
+    "ponderation_loyers_defaut": {
+      "valeur": 0.7,
+      "source": "pratique bancaire, non réglementaire, à confirmer avec la banque",
+      "verifie_le": "2026-10-03",
+      "a_verifier": true
+    },
+    "duree_max_differe_mois": {
+      "valeur": 324,
+      "source": "Décision n° D-HCSF-2021-7 du 29/09/2021, art. 1er, deuxième paragraphe (https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000044178678) : « un différé d'amortissement d'une durée analogue à celle de ce décalage est toléré dans la limite d'une maturité maximale de 27 ans et d'une période d'amortissement ne pouvant excéder 25 ans », pour VEFA, CCMI, contrat de promotion, et l'ancien avec travaux. 27 ans = 324 mois.",
+      "verifie_le": "2026-10-03",
+      "nature": "loi"
+    },
+    "part_travaux_min_differe": {
+      "valeur": 0.1,
+      "source": "Décision du 18/12/2023 modifiant D-HCSF-2021-7 (https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048659704), art. 1er, 1. : « au moins 25 % » remplacé par « au moins 10 % » (du coût total de l'opération) ; art. 2 : crédits dont le premier décaissement a lieu à partir du 01/01/2024. Objet des travaux limitativement énuméré (création de surfaces, modernisation, assainissement, aménagement, rénovation énergétique) : non contrôlé par le moteur.",
+      "verifie_le": "2026-10-03",
+      "nature": "loi"
+    }
+  },
+  "fiscal": {
+    "_notice": "Fiscalité en nom propre. nature : loi (texte), doctrine (BOFiP), pratique (usage, a_verifier=true).",
+    "deficit_foncier": {
+      "plafond_revenu_global": {
+        "valeur": 10700,
+        "source": "BOI-RFPI-BASE-30-20-20250916 (https://bofip.impots.gouv.fr/bofip/4142-PGP.html/identifiant=BOI-RFPI-BASE-30-20-20250916) §160 : « La fraction du déficit foncier imputable sur le revenu global ne peut excéder la limite de 10 700 € par an, fixée au 3° du I de l'article 156 du CGI. » Ordre (§110) : « Le revenu brut est toujours réputé compenser prioritairement les intérêts d'emprunt. »",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "plafond_majore_renovation": {
+        "valeur": 21400,
+        "source": "CGI art. 156, I, 3° (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051765216, version en vigueur depuis le 01/07/2026), 4e alinéa : limite « rehaussée, sans pouvoir excéder 21 400 € par an, à concurrence du montant des dépenses déductibles de travaux de rénovation énergétique permettant à un bien de passer d'une classe énergétique E, F ou G […] à une classe […] A, B, C ou D » ; justification du nouveau classement au plus tard le 31/12/2027. BOI-RFPI-BASE-30-20-20250916 (https://bofip.impots.gouv.fr/bofip/4142-PGP.html/identifiant=BOI-RFPI-BASE-30-20-20250916) §300 (option sur la 2044) et §310.",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "renovation_classes_avant": {
+        "valeur": [
+          "E",
+          "F",
+          "G"
+        ],
+        "source": "CGI art. 156, I, 3° (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051765216, version en vigueur depuis le 01/07/2026), 4e alinéa.",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "renovation_classes_apres": {
+        "valeur": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "source": "CGI art. 156, I, 3° (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051765216, version en vigueur depuis le 01/07/2026), 4e alinéa.",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "renovation_annees_paiement": {
+        "valeur": [
+          2023,
+          2027
+        ],
+        "source": "Dépenses payées du 01/01/2023 au 31/12/2025 (BOI-RFPI-BASE-30-20-20250916 (https://bofip.impots.gouv.fr/bofip/4142-PGP.html/identifiant=BOI-RFPI-BASE-30-20-20250916) §260, devis accepté à compter du 05/11/2022) puis du 01/01/2026 au 31/12/2027 (loi n° 2026-103 du 19/02/2026, art. 47, I 4° et II, https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000053508409). Le moteur contrôle l'année de revenus, pas la date de paiement ni celle du devis.",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      }
+    },
+    "foncier": {
+      "frais_emprunt_dans_bloc_interets": {
+        "valeur": true,
+        "source": "Hypothèse (a) du moteur : assurance emprunteur et frais d'emprunt dans le bloc « intérêts » du foncier réel (ligne 250 de la 2044). Confortée par BOI-RFPI-BASE-30-20-20250916 (https://bofip.impots.gouv.fr/bofip/4142-PGP.html/identifiant=BOI-RFPI-BASE-30-20-20250916) §110 : « les frais accessoires à un emprunt sont assimilés aux intérêts (frais de dossier, assurance-vie ou chômage, etc.) et suivent le même régime que les intérêts » ; notice 2044-SPE 2026, ligne 250 (https://www.impots.gouv.fr/sites/default/files/formulaires/2044/2026/2044_5486.pdf) ; BOI-RFPI-BASE-20-80-20170901 §180-190. Réserve : la BOFiP vise l'assurance décès garantissant le prêt ; notice de la 2044 normale non extraite.",
+        "verifie_le": "2026-10-03",
+        "nature": "doctrine",
+        "a_verifier": true
+      }
+    },
+    "micro_foncier": {
+      "seuil_revenus_bruts_foyer": {
+        "valeur": 15000,
+        "source": "CGI art. 32, 1 (Légifrance LEGIARTI000048847610, version du 21/02/2026, relu le 04/10/2026) : micro-foncier lorsque le revenu brut annuel « n'excède pas 15 000 € » ; exclusion des logements au titre des déductions f, g, h, i et j du 1° du I de l'article 31 (art. 32, 2-c).",
+        "verifie_le": "2026-10-04",
+        "nature": "loi"
+      },
+      "abattement": {
+        "valeur": 0.3,
+        "source": "CGI art. 32, 1 (même lecture du 04/10/2026) : revenu brut « diminué d'un abattement de 30 % ».",
+        "verifie_le": "2026-10-04",
+        "nature": "loi"
+      }
+    },
+    "micro_bic": {
+      "revenus_2025": {
+        "valeur": {
+          "meuble_longue_duree": {
+            "abattement": 0.5,
+            "plafond": 77700
+          },
+          "tourisme_non_classe": {
+            "abattement": 0.3,
+            "plafond": 15000
+          }
+        },
+        "source": "Brochure IR 2026, revenus non salariaux (https://www.impots.gouv.fr/www2/fichiers/documentation/brochure/ir_2026/pdf_som/11-revenus_non_salaries_161a182.pdf) : micro-BIC si recettes ≤ 15 000 € (meublés de tourisme non classés) ou 77 700 € (autres locations meublées, dont longue durée) ; abattement 50 % ou 30 %.",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "revenus_2026": {
+        "valeur": {
+          "meuble_longue_duree": {
+            "abattement": 0.5,
+            "plafond": 83600
+          },
+          "tourisme_non_classe": {
+            "abattement": 0.3,
+            "plafond": 15000
+          }
+        },
+        "source": "Actualité BOFiP du 19/08/2026 (https://bofip.impots.gouv.fr/bofip/14765-PGP.html/ACTU-2025-00127) : « Pour les revenus perçus à compter de l'année 2026, l'ensemble des activités de location en meublé relève du seuil de chiffre d'affaires de 83 600 € et d'un abattement de 50 %, à l'exception des activités de location de meublés touristiques non classés qui bénéficient d'un seuil de 15 000 € de chiffre d'affaires et d'un abattement de 30 %. » Période 2026-2028 (BOI-BAREME-000044).",
+        "verifie_le": "2026-10-03",
+        "nature": "doctrine"
+      },
+      "revenus_2027": {
+        "valeur": {
+          "meuble_longue_duree": {
+            "abattement": 0.5,
+            "plafond": 83600
+          },
+          "tourisme_non_classe": {
+            "abattement": 0.3,
+            "plafond": 15000
+          }
+        },
+        "source": "Actualité BOFiP du 19/08/2026 (https://bofip.impots.gouv.fr/bofip/14765-PGP.html/ACTU-2025-00127) : « Pour les revenus perçus à compter de l'année 2026, l'ensemble des activités de location en meublé relève du seuil de chiffre d'affaires de 83 600 € et d'un abattement de 50 %, à l'exception des activités de location de meublés touristiques non classés qui bénéficient d'un seuil de 15 000 € de chiffre d'affaires et d'un abattement de 30 %. » Période 2026-2028 (BOI-BAREME-000044).",
+        "verifie_le": "2026-10-03",
+        "nature": "doctrine"
+      },
+      "revenus_2028": {
+        "valeur": {
+          "meuble_longue_duree": {
+            "abattement": 0.5,
+            "plafond": 83600
+          },
+          "tourisme_non_classe": {
+            "abattement": 0.3,
+            "plafond": 15000
+          }
+        },
+        "source": "Actualité BOFiP du 19/08/2026 (https://bofip.impots.gouv.fr/bofip/14765-PGP.html/ACTU-2025-00127) : « Pour les revenus perçus à compter de l'année 2026, l'ensemble des activités de location en meublé relève du seuil de chiffre d'affaires de 83 600 € et d'un abattement de 50 %, à l'exception des activités de location de meublés touristiques non classés qui bénéficient d'un seuil de 15 000 € de chiffre d'affaires et d'un abattement de 30 %. » Période 2026-2028 (BOI-BAREME-000044).",
+        "verifie_le": "2026-10-03",
+        "nature": "doctrine"
+      },
+      "abattement_minimum": {
+        "valeur": 305,
+        "source": "BOI-BIC-DECLA-20-20260819 §10 (https://bofip.impots.gouv.fr/bofip/1884-PGP.html/identifiant=BOI-BIC-DECLA-20-20260819) : « Chacun de ces abattements ne peut être inférieur à 305 €. » ; Brochure IR 2026, revenus non salariaux (https://www.impots.gouv.fr/www2/fichiers/documentation/brochure/ir_2026/pdf_som/11-revenus_non_salaries_161a182.pdf).",
+        "verifie_le": "2026-10-03",
+        "nature": "doctrine"
+      }
+    },
+    "prelevements_sociaux": {
+      "revenus_fonciers": {
+        "valeur": 0.172,
+        "source": "LFSS 2026 (loi n° 2025-1403 du 30/12/2025), art. 12 (https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000053226452) : CSG de L136-8 I 2° portée de 9,2 % à 10,6 % ; IV : maintien à 9,2 % pour « les revenus mentionnés au a du I de l'article L. 136-6 » (revenus fonciers) et les plus-values de L136-7 I 2° ; II 1° : applicable « à compter de l'imposition des revenus de l'année 2025 » pour L136-6. Composantes relues le 04/10/2026 : service-public.gouv.fr F2329 (vérifiée le 30/06/2026) : CSG 9,2 % + CRDS 0,5 % + prélèvement de solidarité 7,5 % (CGI art. 235 ter) = 17,2 % sur les revenus fonciers.",
+        "verifie_le": "2026-10-04",
+        "nature": "loi"
+      },
+      "bic_lmnp": {
+        "valeur": 0.186,
+        "source": "LFSS 2026 (loi n° 2025-1403 du 30/12/2025), art. 12 (https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000053226452) : CSG de L136-8 I 2° portée de 9,2 % à 10,6 % ; IV : maintien à 9,2 % pour « les revenus mentionnés au a du I de l'article L. 136-6 » (revenus fonciers) et les plus-values de L136-7 I 2° ; II 1° : applicable « à compter de l'imposition des revenus de l'année 2025 » pour L136-6. BIC non professionnels (L136-6 I f, hors revenus soumis à la CSG d'activité), dès les revenus 2025. Composantes relues le 04/10/2026 : service-public.gouv.fr F2329 (vérifiée le 30/06/2026) : CSG portée à 10,6 % pour la location meublée non professionnelle, soit 18,6 % avec la CRDS (0,5 %) et le prélèvement de solidarité (7,5 %).",
+        "verifie_le": "2026-10-04",
+        "nature": "loi",
+        "annee_min": 2025
+      },
+      "revenus_placement": {
+        "valeur": 0.186,
+        "source": "LFSS 2026 (loi n° 2025-1403 du 30/12/2025), art. 12 (https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000053226452, lu le 04/10/2026) : CSG de L136-8 I 2° portée de 9,2 % à 10,6 %, « à compter du 1er janvier 2026 en ce qui concerne la contribution mentionnée à l'article L. 136-7 » (produits de placement, dont les dividendes) (vérifié sur Légifrance le 02/10/2026). Composantes : service-public.gouv.fr F2329 (vérifiée le 30/06/2026, lue le 04/10/2026) : revenus de placement 18,6 % = CSG 10,6 % + CRDS 0,5 % + prélèvement de solidarité 7,5 %.",
+        "verifie_le": "2026-10-04",
+        "nature": "loi"
+      }
+    },
+    "lmnp": {
+      "seuil_lmp_recettes": {
+        "valeur": 23000,
+        "source": "CGI art. 155, IV, 2 (Légifrance LEGIARTI000041468265 ; BOI-BIC-CHAMP-40-10-20200205 ; relus le 04/10/2026) : location meublée professionnelle si les recettes annuelles du foyer excèdent 23 000 € et excèdent les autres revenus d'activité du foyer.",
+        "verifie_le": "2026-10-04",
+        "nature": "loi"
+      },
+      "composants": {
+        "valeur": {
+          "terrain": 0.15,
+          "gros_oeuvre": [
+            0.5,
+            50
+          ],
+          "facade_toiture": [
+            0.15,
+            25
+          ],
+          "installations_techniques": [
+            0.15,
+            20
+          ],
+          "agencements": [
+            0.05,
+            10
+          ]
+        },
+        "source": "Hypothèse (c) du moteur : ventilation usuelle, aucune doctrine propre au LMNP ; durées compatibles avec les usages cités par BOI-ANNX-000115 (gros œuvre > 50 ans, façades 20-50, installations 15-30, agencements 5-15). [part, durée en années] ; le terrain n'est pas amortissable.",
+        "verifie_le": "2026-10-03",
+        "nature": "pratique",
+        "a_verifier": true
+      },
+      "duree_travaux_amelioration": {
+        "valeur": 15,
+        "source": "Hypothèse (c) du moteur : travaux d'amélioration amortis sur 15 ans (usage).",
+        "verifie_le": "2026-10-03",
+        "nature": "pratique",
+        "a_verifier": true
+      },
+      "duree_mobilier": {
+        "valeur": 7,
+        "source": "Hypothèse (c) du moteur : mobilier amorti sur 7 ans (usage).",
+        "verifie_le": "2026-10-03",
+        "nature": "pratique",
+        "a_verifier": true
+      },
+      "frais_acquisition": {
+        "valeur": "incorpores",
+        "source": "Hypothèse (b) du moteur : frais d'acquisition incorporés au prix et ventilés comme lui (choix prudent). L'option inverse (charge immédiate) existe : CGI ann. III art. 38 quinquies, 1-a (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006296549), irrévocable et uniforme (BOI-BIC-CHG-20-20-10-20190109 §140) ; non codée.",
+        "verifie_le": "2026-10-03",
+        "nature": "pratique",
+        "a_verifier": true
+      },
+      "ordre_imputation": {
+        "valeur": "amortissement_puis_deficits",
+        "source": "Hypothèse (d) du moteur : amortissement limité au résultat (CGI 39 C II), puis déficits antérieurs (CGI 156-I-1° ter, 10 ans, même activité) imputés sur le résultat positif restant. Ordre non confirmé par une doctrine lue.",
+        "verifie_le": "2026-10-03",
+        "nature": "pratique",
+        "a_verifier": true
+      }
+    },
+    "bailleur_prive": {
+      "taux": {
+        "valeur": {
+          "i": {
+            "intermediaire": 0.035,
+            "social": 0.045,
+            "tres_social": 0.055
+          },
+          "j": {
+            "intermediaire": 0.03,
+            "social": 0.035,
+            "tres_social": 0.04
+          }
+        },
+        "source": "CGI art. 31, I, 1°, i et j (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053544761, version en vigueur du 21/02/2026 au 01/01/2027) : i « Le taux de l'amortissement est fixé à 3,5 % […] majoré d'un point ou de deux points » (social, très social) ; j « fixé à 3 % […] majoré de 0,5 point ou d'un point ».",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "plafond_annuel_foyer": {
+        "valeur": {
+          "intermediaire": 8000,
+          "social": 10000,
+          "tres_social": 12000
+        },
+        "source": "CGI art. 31, I, 1°, i et j (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053544761, version en vigueur du 21/02/2026 au 01/01/2027) : « La somme des déductions […] ne peut excéder 8 000 € par an et par foyer fiscal. Ce montant est majoré de 2 000 € ou 4 000 € lorsque 50 % au moins des revenus bruts issus des logements bénéficiaires […] sont affectés respectivement à la location sociale ou à la location très sociale ». Le moteur applique la majoration au seul bien étudié (condition de 50 % appréciée au foyer).",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "part_foncier": {
+        "valeur": 0.2,
+        "source": "CGI art. 31, I, 1°, i et j (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053544761, version en vigueur du 21/02/2026 au 01/01/2027) : foncier « estimé forfaitairement à 20 % du prix d'acquisition net de frais » (i), « majoré le cas échéant du montant des travaux » (j).",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "travaux_min_j": {
+        "valeur": 0.3,
+        "source": "CGI art. 31, I, 1°, i et j (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053544761, version en vigueur du 21/02/2026 au 01/01/2027), j : « travaux d'amélioration [qui] représentent au moins 30 % du prix d'acquisition, qui satisfont les critères d'une réhabilitation lourde, au sens du deuxième alinéa du b du 7° du II de l'article 150 U ». Réhabilitation lourde non contrôlée par le moteur.",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "fenetre_acquisition": {
+        "valeur": {
+          "debut": "2026-02-21",
+          "fin": "2028-12-31"
+        },
+        "source": "CGI art. 31, I, 1°, i et j (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053544761, version en vigueur du 21/02/2026 au 01/01/2027) : acquisitions « entre le lendemain de la publication de la loi n° 2026-103 du 19 février 2026 de finances pour 2026 et le 31 décembre 2028 » (JO du 20/02/2026, d'où le 21/02/2026).",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "loyer_plafond_intermediaire_2026": {
+        "valeur": {
+          "A bis": 19.71,
+          "A": 14.64,
+          "B1": 11.8,
+          "B2": 10.26,
+          "C": 10.26
+        },
+        "source": "CGI ann. III art. 2 terdecies D, I-1 (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042161229/, version du 01/07/2026) : « 19,71 € en zone A bis, 14,64 € dans le reste de la zone A, 11,80 € en zone B 1 et 10,26 € en zone B 2 et en zone C » (baux conclus en 2026, €/m² hors charges), applicable via le III de l'art. 199 novovicies auquel renvoie l'art. 31 ; BOI-BAREME-000017-20260310 §150 (https://bofip.impots.gouv.fr/bofip/10130-PGP.html/identifiant=BOI-BAREME-000017-20260310).",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "coefficient_surface": {
+        "valeur": {
+          "constante": 0.7,
+          "numerateur": 19,
+          "maximum": 1.2
+        },
+        "source": "CGI ann. III art. 2 terdecies D, I-1 : « 0,7 + 19/S, dans laquelle S est la surface du logement. Le coefficient ainsi obtenu est arrondi à la deuxième décimale la plus proche et ne peut excéder 1,2. »",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "zones": {
+        "valeur": {},
+        "source": "Référence générale : arrêté du 01/08/2014 relatif au zonage A/B/C, modifié en dernier lieu par l'arrêté du 05/09/2025 (JO du 06/09/2025, texte 62, https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052198878). Aucune commune ici : les communes étudiées s'ajoutent dans immo-data/params_local.json (feuille complète {code INSEE : zone}, avec la source lue et verifie_le). Seules les communes listées sont connues du moteur.",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      }
+    },
+    "is": {
+      "taux_reduit": {
+        "valeur": 0.15,
+        "source": "CGI art. 219, I-b (Légifrance LEGIARTI000046868562, version modifiée par la loi n° 2026-103 du 19/02/2026, art. 15 ; lu le 03/10/2026) : taux de 15 % « dans la limite de 42 500 € de bénéfice imposable par période de douze mois » ; taux normal de 25 % au-delà (CGI art. 219, I). Conditions du taux réduit : chiffre d'affaires « n'excédant pas 10 millions d'euros » et capital « entièrement libéré et détenu de manière continue pour 75 % au moins par des personnes physiques » (même article).",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "taux_normal": {
+        "valeur": 0.25,
+        "source": "CGI art. 219, I-b (Légifrance LEGIARTI000046868562, version modifiée par la loi n° 2026-103 du 19/02/2026, art. 15 ; lu le 03/10/2026) : taux de 15 % « dans la limite de 42 500 € de bénéfice imposable par période de douze mois » ; taux normal de 25 % au-delà (CGI art. 219, I). Conditions du taux réduit : chiffre d'affaires « n'excédant pas 10 millions d'euros » et capital « entièrement libéré et détenu de manière continue pour 75 % au moins par des personnes physiques » (même article).",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      },
+      "limite_taux_reduit_12_mois": {
+        "valeur": 42500,
+        "source": "CGI art. 219, I-b (Légifrance LEGIARTI000046868562, version modifiée par la loi n° 2026-103 du 19/02/2026, art. 15 ; lu le 03/10/2026) : taux de 15 % « dans la limite de 42 500 € de bénéfice imposable par période de douze mois » ; taux normal de 25 % au-delà (CGI art. 219, I). Conditions du taux réduit : chiffre d'affaires « n'excédant pas 10 millions d'euros » et capital « entièrement libéré et détenu de manière continue pour 75 % au moins par des personnes physiques » (même article). Limite ajustée prorata temporis si l'exercice ne dure pas douze mois : BOI-IS-LIQ-20-20-20230621 §50 (lu le 03/10/2026). Premier exercice : une seule période d'imposition, close au plus tard le 31/12 de l'année suivant la création (BOI-IS-LIQ-20-10-20230621 §80, lu le 04/10/2026 par l'orchestrateur).",
+        "verifie_le": "2026-10-03",
+        "nature": "loi"
+      }
+    },
+    "sci_is": {
+      "taux_max_interets_cca": {
+        "valeur": [
+          {
+            "cloture_du": "2025-12-31",
+            "cloture_au": "2026-01-30",
+            "taux": 0.0455
+          },
+          {
+            "cloture_du": "2026-01-31",
+            "cloture_au": "2026-02-27",
+            "taux": 0.0449
+          },
+          {
+            "cloture_du": "2026-02-28",
+            "cloture_au": "2026-03-30",
+            "taux": 0.0444
+          },
+          {
+            "cloture_du": "2026-03-31",
+            "cloture_au": "2026-04-29",
+            "taux": 0.0439
+          },
+          {
+            "cloture_du": "2026-04-30",
+            "cloture_au": "2026-05-30",
+            "taux": 0.0437
+          },
+          {
+            "cloture_du": "2026-05-31",
+            "cloture_au": "2026-06-29",
+            "taux": 0.0434
+          },
+          {
+            "cloture_du": "2026-06-30",
+            "cloture_au": "2026-07-30",
+            "taux": 0.0433
+          },
+          {
+            "cloture_du": "2026-07-31",
+            "cloture_au": "2026-08-30",
+            "taux": 0.0433
+          },
+          {
+            "cloture_du": "2026-08-31",
+            "cloture_au": "2026-09-29",
+            "taux": 0.0433
+          }
+        ],
+        "source": "Taux maximal des intérêts de comptes courants d'associés, pour des exercices de DOUZE MOIS, par date de clôture (bornes incluses). CGI art. 39, 1, 3° (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043829057, lu le 04/10/2026) : intérêts déductibles « dans la limite de ceux calculés à un taux égal à la moyenne annuelle des taux effectifs moyens pratiqués par les établissements de crédit et les sociétés de financement pour des prêts à taux variable aux entreprises, d'une durée initiale supérieure à deux ans. Cette déduction est subordonnée à la condition que le capital ait été entièrement libéré. » Taux publiés : BOI-BIC-CHG-50-50-30-20260128 §40 (https://bofip.impots.gouv.fr/bofip/5505-PGP.html/identifiant=BOI-BIC-CHG-50-50-30-20260128 ; clôtures du 31/12/2025 au 30/03/2026 : 4,55 %, 4,49 %, 4,44 %), puis BOI-BIC-CHG-50-50-30-20260513 (clôtures du 31/03 au 29/06/2026 : 4,39 %, 4,37 %, 4,34 %) et BOI-BIC-CHG-50-50-30-20260805, en vigueur au 04/10/2026 (clôtures du 30/06 au 29/09/2026 : 4,33 % ×3) ; tableaux lus en HTML le 04/10/2026. Aucun taux publié pour une clôture au 30/09/2026 ou après ; clôtures antérieures au 31/12/2025 non reprises (versions antérieures du BOI non lues). Exercice qui ne dure pas douze mois : taux propre non codé.",
+        "verifie_le": "2026-10-04",
+        "nature": "doctrine",
+        "a_verifier": true
+      },
+      "deficit_imputation_max": {
+        "valeur": {
+          "franchise": 1000000,
+          "fraction_au_dela": 0.5
+        },
+        "source": "CGI art. 209, I, 3e alinéa (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048847486, lu le 04/10/2026) : le déficit est « déduit du bénéfice réalisé pendant ledit exercice dans la limite d'un montant de 1 000 000 € majoré de 50 % du montant correspondant au bénéfice imposable dudit exercice excédant ce premier montant » ; l'excédent, et la fraction non admise, sont « reporté[s] dans les mêmes conditions sur les exercices suivants » (aucune limite de durée écrite). Report en arrière (CGI art. 220 quinquies, sur option) non codé.",
+        "verifie_le": "2026-10-04",
+        "nature": "loi"
+      }
+    },
+    "dividendes": {
+      "pfu_ir": {
+        "valeur": 0.128,
+        "source": "CGI art. 200 A, 1 (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053546896, lu le 04/10/2026) : « Le taux forfaitaire mentionné au premier alinéa du présent 1 est fixé à 12,8 % » ; 2 : « sur option expresse du contribuable, l'ensemble des revenus […] est retenu dans l'assiette du revenu net global » (option globale pour le barème).",
+        "verifie_le": "2026-10-04",
+        "nature": "loi"
+      },
+      "abattement_bareme": {
+        "valeur": 0.4,
+        "source": "CGI art. 158, 3, 2° (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042909707/, lu le 04/10/2026) : revenus distribués par les sociétés « passibles de l'impôt sur les sociétés […] ou soumises sur option à cet impôt » (siège dans l'UE ou un État conventionné avec clause d'assistance, décision régulière des organes compétents), « réduits, pour le calcul de l'impôt sur le revenu, d'un abattement égal à 40 % de leur montant brut perçu ». Au barème seulement : BOI-RPPM-RCM-20-10-30-10-20191220 §1 (https://bofip.impots.gouv.fr/bofip/2218-PGP.html, lu le 04/10/2026).",
+        "verifie_le": "2026-10-04",
+        "nature": "loi"
+      },
+      "csg_deductible": {
+        "valeur": 0.068,
+        "source": "CGI art. 154 quinquies (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047288608, lu le 04/10/2026) : CSG des revenus « imposés dans les conditions prévues à l'article 197 » (barème), « admise en déduction du revenu imposable de l'année de son paiement, à hauteur de 6,8 points » ; rien sous le PFU. service-public.gouv.fr F2329 (vérifiée le 30/06/2026, lue le 04/10/2026) : part de CSG déductible 6,8 %.",
+        "verifie_le": "2026-10-04",
+        "nature": "loi"
+      }
+    },
+    "liquidation": {
+      "droit_partage": {
+        "valeur": 0.025,
+        "source": "CGI art. 746 (Légifrance, version en vigueur depuis le 01/01/2021, aucune version future ; lu le 07/10/2026) : droit de partage de 2,5 % ; les baisses à 1,8 % puis 1,1 % ne visent que les partages consécutifs à un divorce ou à la rupture d'un PACS. Assiette : actif net partagé, passif déduit, comptes courants créditeurs des associés déduits (CGI art. 747 ; BOI-ENR-AVS-30-20-10 §110 et §170). Acte de dissolution sans transmission enregistré gratuitement (CGI art. 811, 2°) ; acte de partage à enregistrer dans le délai d'un mois (CGI art. 635, 1, 7°).",
+        "verifie_le": "2026-10-07",
+        "nature": "loi"
+      },
+      "droit_partage_sur_masse": {
+        "valeur": true,
+        "source": "Hypothèse du moteur (point incertain) : le droit de partage est payé sur la masse partagée, avant le calcul du boni de liquidation (boni = actif net partagé - droit de partage - apports) ; non confirmée par une source lue. Seule cette valeur est codée (src/immo/sortie.py, liquider).",
+        "verifie_le": "2026-10-07",
+        "nature": "pratique",
+        "a_verifier": true
+      }
+    }
+  }
+}

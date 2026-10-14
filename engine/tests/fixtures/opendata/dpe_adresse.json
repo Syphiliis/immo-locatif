@@ -1,0 +1,56 @@
+{
+  "total": 4,
+  "results": [
+    {
+      "adresse_ban": "1 Rue de Test 99100 Exempleville",
+      "etiquette_ges": "B",
+      "code_insee_ban": "99001",
+      "type_batiment": "maison",
+      "periode_construction": "avant 1948",
+      "type_energie_principale_chauffage": "Électricité",
+      "conso_5_usages_par_m2_ep": 273,
+      "date_etablissement_dpe": "2025-12-31",
+      "surface_habitable_logement": 90,
+      "etiquette_dpe": "D",
+      "_score": null
+    },
+    {
+      "adresse_ban": "1 Rue de Test 99100 Exempleville",
+      "etiquette_ges": "B",
+      "code_insee_ban": "99001",
+      "type_batiment": "maison",
+      "periode_construction": "avant 1948",
+      "type_energie_principale_chauffage": "Électricité",
+      "conso_5_usages_par_m2_ep": 240,
+      "date_etablissement_dpe": "2026-01-01",
+      "surface_habitable_logement": 90,
+      "etiquette_dpe": "D",
+      "_score": null
+    },
+    {
+      "adresse_ban": "1 Rue de Test 99100 Exempleville",
+      "etiquette_ges": "D",
+      "code_insee_ban": "99001",
+      "type_batiment": "maison",
+      "periode_construction": "avant 1948",
+      "type_energie_principale_chauffage": "Gaz naturel",
+      "conso_5_usages_par_m2_ep": 314,
+      "date_etablissement_dpe": "2025-06-01",
+      "surface_habitable_logement": 87,
+      "etiquette_dpe": "E",
+      "_score": null
+    },
+    {
+      "adresse_ban": "1 Rue de Test 99100 Exempleville",
+      "etiquette_ges": "B",
+      "code_insee_ban": "99001",
+      "type_batiment": "maison",
+      "periode_construction": "avant 1948",
+      "conso_5_usages_par_m2_ep": 237,
+      "date_etablissement_dpe": "2025-03-15",
+      "surface_habitable_logement": 70,
+      "etiquette_dpe": "D",
+      "_score": null
+    }
+  ]
+}

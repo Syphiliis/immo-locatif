@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "__id": 1,
+      "id_zone": "9999",
+      "INSEE_C": "99001",
+      "LIBGEO": "Commune de Test",
+      "EPCI": "200099999",
+      "DEP": "99",
+      "REG": "11",
+      "loypredm2": 12.5,
+      "lwr.IPm2": 9.75,
+      "upr.IPm2": 15.25,
+      "TYPPRED": "maille",
+      "nbobs_com": 7,
+      "nbobs_mail": 212,
+      "R2_adj": 0.7
+    }
+  ],
+  "links": {
+    "next": null,
+    "prev": null
+  },
+  "meta": {
+    "page": 1,
+    "page_size": 20,
+    "total": 1
+  }
+}

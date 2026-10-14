@@ -1,0 +1,32 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.5117,
+          47.4972
+        ]
+      },
+      "properties": {
+        "label": "Exempleville",
+        "score": 0.9471172727272725,
+        "id": "99001",
+        "name": "Exempleville",
+        "postcode": "99100",
+        "citycode": "99001",
+        "city": "Exempleville",
+        "context": "99, Département-Exemple, Région-Exemple",
+        "type": "municipality",
+        "importance": 0.41829,
+        "depcode": "99",
+        "population": 4321,
+        "municipality": "Exempleville",
+        "_type": "address"
+      }
+    }
+  ],
+  "query": "Exempleville 99100"
+}

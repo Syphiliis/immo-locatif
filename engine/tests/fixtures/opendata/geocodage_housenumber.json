@@ -1,0 +1,32 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.5021,
+          47.5013
+        ]
+      },
+      "properties": {
+        "label": "1 Rue de Test 99100 Exempleville",
+        "score": 0.96,
+        "id": "99001_0001_00001",
+        "name": "1 Rue de Test",
+        "postcode": "99100",
+        "citycode": "99001",
+        "city": "Exempleville",
+        "context": "99, Département-Exemple, Région-Exemple",
+        "type": "housenumber",
+        "importance": 0.61,
+        "depcode": "99",
+        "housenumber": "1",
+        "street": "Rue de Test",
+        "_type": "address"
+      }
+    }
+  ],
+  "query": "1 Rue de Test 99100 Exempleville"
+}

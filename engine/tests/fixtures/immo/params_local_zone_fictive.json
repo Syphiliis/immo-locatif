@@ -1,0 +1,8 @@
+{
+  "_lisez_moi": "Surcharge FICTIVE de test : zone locative d'une commune inventée (code 99001), pour le régime du bailleur privé.",
+  "fiscal": {
+    "bailleur_prive": {
+      "zones": {"valeur": {"99001": "B1"}, "source": "fictive (test)", "verifie_le": "2026-10-01"}
+    }
+  }
+}

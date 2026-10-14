@@ -1,0 +1,124 @@
+{
+ "_lisez_moi": "Profil FICTIF de test du contrôle d'entrée (immo_entree.py controle) : valeurs choisies pour le test.",
+ "decisions": [
+  {
+   "cle": "cible",
+   "valeur": [
+    "maison_de_ville"
+   ],
+   "unite": "types de bien",
+   "date": "2026-01-15",
+   "source": "fictif (test)",
+   "exceptions": []
+  },
+  {
+   "cle": "budget_fai",
+   "valeur": {
+    "min": 90000,
+    "max": 160000
+   },
+   "unite": "€ FAI",
+   "date": "2026-01-15",
+   "source": "fictif (test)",
+   "exceptions": []
+  },
+  {
+   "cle": "premier_achat_prix_max",
+   "valeur": 135000,
+   "unite": "€, prix net vendeur + frais d'agence, strictement inférieur",
+   "date": "2026-01-15",
+   "source": "fictif (test)",
+   "exceptions": [
+    {
+     "annonce": "9000000001",
+     "portee": "plafond levé pour cette annonce fictive",
+     "date": "2026-01-20"
+    }
+   ]
+  },
+  {
+   "cle": "apport",
+   "valeur": {
+    "min": 0.05,
+    "max": 0.15
+   },
+   "unite": "fraction du financement",
+   "date": "2026-01-15",
+   "source": "fictif (test)",
+   "exceptions": []
+  },
+  {
+   "cle": "montage_reference",
+   "valeur": "lmnp_reel",
+   "unite": "montage",
+   "date": "2026-01-15",
+   "source": "fictif (test)",
+   "exceptions": []
+  },
+  {
+   "cle": "comptabilite_sci_dans_cash_flow",
+   "valeur": false,
+   "unite": "booléen",
+   "date": "2026-01-15",
+   "source": "fictif (test)",
+   "exceptions": []
+  },
+  {
+   "cle": "seuil_confort_cf_mensuel",
+   "valeur": 200,
+   "unite": "€/mois, scénario réaliste, avant impôt",
+   "date": "2026-01-15",
+   "source": "fictif (test)",
+   "exceptions": []
+  },
+  {
+   "cle": "division",
+   "valeur": true,
+   "unite": "booléen",
+   "date": "2026-01-15",
+   "source": "fictif (test)",
+   "exceptions": []
+  },
+  {
+   "cle": "vacance_realiste",
+   "valeur": 0.06,
+   "unite": "fraction de l'année, dans les trois scénarios",
+   "date": "2026-01-15",
+   "source": "fictif (test)",
+   "exceptions": []
+  },
+  {
+   "cle": "meuble_logements_2_pieces_ou_moins",
+   "valeur": false,
+   "unite": "booléen : scénario meublé étudié",
+   "date": "2026-01-15",
+   "source": "fictif (test)",
+   "exceptions": []
+  },
+  {
+   "cle": "zone",
+   "valeur": {
+    "commune_centre": "Fictibourg",
+    "code_insee": "99001",
+    "departement": "99",
+    "communes": [
+     "Fictibourg",
+     "Hameau-Exemple",
+     "Bois-le-Petit-Fictif"
+    ]
+   },
+   "unite": "zone de recherche",
+   "date": "2026-01-15",
+   "source": "fictif (test)",
+   "exceptions": []
+  },
+  {
+   "cle": "offre_sans_condition_suspensive_pret",
+   "valeur": null,
+   "unite": "booléen ; null : à demander à l'investisseur",
+   "date": "2026-01-15",
+   "source": "fictif (test)",
+   "exceptions": []
+  }
+ ]
+}

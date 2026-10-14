@@ -1,0 +1,30 @@
+{
+ "_lisez_moi": "Profil FICTIF de tests, au format de immo-data/profil.json (cle, valeur, exceptions).",
+ "decisions": [
+  {
+   "cle": "cible",
+   "valeur": [
+    "immeuble_de_rapport",
+    "maison_de_ville"
+   ],
+   "unite": "types de bien",
+   "date": "2026-01-01",
+   "source": "fictif",
+   "exceptions": []
+  },
+  {
+   "cle": "premier_achat_prix_max",
+   "valeur": 100000,
+   "unite": "€, strictement inférieur",
+   "date": "2026-01-01",
+   "source": "fictif",
+   "exceptions": [
+    {
+     "annonce": "9000000012",
+     "portee": "plafond de prix levé pour cette annonce fictive",
+     "date": "2026-01-02"
+    }
+   ]
+  }
+ ]
+}

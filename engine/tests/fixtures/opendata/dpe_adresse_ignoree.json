@@ -1,0 +1,31 @@
+{
+  "total": 9581771,
+  "results": [
+    {
+      "adresse_ban": "3 Rue de Test 11000 Carcassonne",
+      "etiquette_ges": "B",
+      "code_insee_ban": "11069",
+      "type_batiment": "appartement",
+      "periode_construction": "1948-1974",
+      "type_energie_principale_chauffage": "Gaz naturel",
+      "conso_5_usages_par_m2_ep": 180,
+      "date_etablissement_dpe": "2025-05-02",
+      "surface_habitable_logement": 55,
+      "etiquette_dpe": "C",
+      "_score": null
+    },
+    {
+      "adresse_ban": "5 Rue de Test 13001 Marseille",
+      "etiquette_ges": "C",
+      "code_insee_ban": "13201",
+      "type_batiment": "maison",
+      "periode_construction": "avant 1948",
+      "type_energie_principale_chauffage": "Électricité",
+      "conso_5_usages_par_m2_ep": 220,
+      "date_etablissement_dpe": "2025-07-14",
+      "surface_habitable_logement": 80,
+      "etiquette_dpe": "D",
+      "_score": null
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "_doc": "Pistes repérées (annonces à étudier), une entrée par annonce. Gabarit : copier dans immo-data/pistes.json. Le crible (engine/scripts/immo_crible.py --pistes-out) propose des entrées dans un fichier à part, à relire puis à verser ici ; il n'écrit jamais ce fichier. Clés d'une piste : id, url, titre, commune, prix, surface, rendement, source, repere_le, categorie (candidat ou remarquable), et question (candidat, avec rang) ou note (remarquable).",
+  "pistes": []
+}

@@ -1,0 +1,51 @@
+{
+ "genere_le": "2026-10-07",
+ "commune": {
+  "insee": "99001",
+  "nom": "Fictibourg",
+  "code_postal": "99001"
+ },
+ "loyers": {
+  "appartement": {
+   "valeur_m2": 12.0,
+   "ip_bas": 10.0,
+   "ip_haut": 14.0,
+   "n": 100,
+   "maille": "commune",
+   "millesime": "2025",
+   "charges": "comprises",
+   "surface_type_m2": 52
+  },
+  "appartement_t1_t2": {
+   "valeur_m2": 14.0,
+   "ip_bas": 12.0,
+   "ip_haut": 16.0,
+   "n": 60,
+   "maille": "commune",
+   "millesime": "2025",
+   "charges": "comprises",
+   "surface_type_m2": 37
+  },
+  "appartement_t3_plus": {
+   "valeur_m2": 10.0,
+   "ip_bas": 8.0,
+   "ip_haut": 12.0,
+   "n": 40,
+   "maille": "commune",
+   "millesime": "2025",
+   "charges": "comprises",
+   "surface_type_m2": 72
+  },
+  "maison": {
+   "valeur_m2": 10.0,
+   "ip_bas": 8.0,
+   "ip_haut": 12.0,
+   "n": 50,
+   "maille": "commune",
+   "millesime": "2025",
+   "charges": "comprises",
+   "surface_type_m2": 92
+  }
+ },
+ "_fictif": "Fiche FICTIVE de tests (commune inventée, valeurs rondes) : au format de immo-data/bruts/*-opendata-*.json."
+}

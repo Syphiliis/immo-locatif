@@ -1,0 +1,25 @@
+{
+  "_lisez_moi": "Surcharge locale de engine/src/immo/params.json, à copier dans immo-data/params_local.json (ou $IMMO_DATA_DIR/params_local.json). Mêmes chemins de clés que params.json. Fusion : les objets se fusionnent clé par clé (un département s'ajoute à côté du 77 d'exemple) ; une feuille (objet portant valeur) remplace en entier la feuille de même chemin (la feuille fiscal.bailleur_prive.zones locale liste donc toutes les communes utiles). Chaque feuille porte valeur, source et verifie_le (AAAA-MM-JJ). Les clés en _ sont ignorées : _exemple ci-dessous ne s'applique pas. Le moteur refuse une valeur « À RENSEIGNER » : aucun chiffre n'est deviné. Sources : le taux départemental des DMTO se lit dans la table DGFiP des taux applicables (impots.gouv.fr, espace partenaires, notaires : « taux des droits de mutation à titre onéreux »), au taux de droit commun (hors primo-accédant) ; la zone A bis, A, B1, B2 ou C d'une commune se lit dans l'arrêté du 1er août 2014 modifié relatif au zonage A/B/C (Légifrance, version en vigueur, et son dernier arrêté modificatif).",
+  "_exemple": {
+    "dmto": {
+      "departements": {
+        "<code département>": {
+          "taux_departemental": {
+            "valeur": "À RENSEIGNER (décimal : 5 % s'écrit 0.05)",
+            "source": "À RENSEIGNER : table DGFiP des taux DMTO, date de la table, ligne du département",
+            "verifie_le": "AAAA-MM-JJ"
+          }
+        }
+      }
+    },
+    "fiscal": {
+      "bailleur_prive": {
+        "zones": {
+          "valeur": {"<code INSEE>": "À RENSEIGNER (A bis, A, B1, B2 ou C)"},
+          "source": "À RENSEIGNER : arrêté du 1er août 2014 modifié (zonage A/B/C), version lue, article et tableau",
+          "verifie_le": "AAAA-MM-JJ"
+        }
+      }
+    }
+  }
+}

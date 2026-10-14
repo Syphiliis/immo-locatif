@@ -1,0 +1,39 @@
+{
+  "totalElements": 1,
+  "totalPages": 1,
+  "pageNumber": 0,
+  "pageSize": 100,
+  "content": [
+    {
+      "idGaspar": "99DDT20000001",
+      "libPpr": "PPRI de la vallée de l'Exemple",
+      "modeleProcedure": "PPRN-I",
+      "libBassinRisques": "Rivière-Exemple",
+      "etatRevision": false,
+      "supExists": true,
+      "zonageReglementaire": {
+        "zoneRegExists": true,
+        "listTypeReg": [
+          {
+            "code": "02",
+            "libelle": "Prescriptions",
+            "nom": "zone bleue",
+            "codeZone": "7"
+          },
+          {
+            "code": "04",
+            "libelle": "Interdiction stricte",
+            "nom": "zone rouge",
+            "codeZone": "2"
+          }
+        ]
+      },
+      "departementPilote": {
+        "codeDepartementPilote": "99",
+        "libelleDepartementPilote": "DEPARTEMENT-EXEMPLE"
+      },
+      "dateModification": "20/02/2025",
+      "listePprRevises": []
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "__id": 12458,
+      "id_zone": "1824",
+      "INSEE_C": "99001",
+      "LIBGEO": "Exempleville",
+      "EPCI": "200099999",
+      "DEP": "99",
+      "REG": "11",
+      "loypredm2": 12.2718,
+      "lwr.IPm2": 9.8833,
+      "upr.IPm2": 15.0412,
+      "TYPPRED": "commune",
+      "nbobs_com": 1210,
+      "nbobs_mail": 1302,
+      "R2_adj": 0.7321
+    }
+  ],
+  "links": {
+    "next": null,
+    "prev": null
+  },
+  "meta": {
+    "page": 1,
+    "page_size": 20,
+    "total": 1
+  }
+}

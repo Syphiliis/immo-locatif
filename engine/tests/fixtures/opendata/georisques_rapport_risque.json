@@ -1,0 +1,73 @@
+{
+  "adresse": {
+    "libelle": "1 Rue de Test, 99100 Exempleville",
+    "longitude": 1.5021,
+    "latitude": 47.5013
+  },
+  "commune": {
+    "libelle": "Exempleville",
+    "codePostal": "99100",
+    "codeInsee": "99001"
+  },
+  "url": "https://www.georisques.gouv.fr/mes-risques/connaitre-les-risques-pres-de-chez-moi/rapport2?typeForm=adresse&city=Exempleville&codeInsee=99001&lon=1.5021&lat=47.5013&adresse=1+Rue+de+Test%2C+99100+Exempleville",
+  "risquesNaturels": {
+    "inondation": {
+      "present": true,
+      "libelle": "Inondation",
+      "libelleStatutCommune": "Risque Existant",
+      "libelleStatutAdresse": "Risque Existant",
+      "specifique": null
+    },
+    "remonteeNappe": {
+      "present": true,
+      "libelle": "Remontée de nappe",
+      "libelleStatutCommune": "Risque Existant",
+      "libelleStatutAdresse": "Risque Existant",
+      "specifique": null
+    },
+    "risqueCotier": {
+      "present": false,
+      "libelle": "Risques côtiers (submersion marine, tsunami)",
+      "libelleStatutCommune": null,
+      "libelleStatutAdresse": null,
+      "specifique": null
+    },
+    "seisme": {
+      "present": true,
+      "libelle": "Séisme",
+      "libelleStatutCommune": "Risque Existant - faible",
+      "libelleStatutAdresse": "Risque Existant - faible",
+      "specifique": null
+    },
+    "mouvementTerrain": {
+      "present": true,
+      "libelle": "Mouvements de terrain",
+      "libelleStatutCommune": "Risque Existant",
+      "libelleStatutAdresse": "Risque Inconnu",
+      "specifique": null
+    }
+  },
+  "risquesTechnologiques": {
+    "icpe": {
+      "present": false,
+      "libelle": "Installations industrielles classées (ICPE)",
+      "libelleStatutCommune": null,
+      "libelleStatutAdresse": null,
+      "specifique": null
+    },
+    "canalisationsMatieresDangereuses": {
+      "present": true,
+      "libelle": "Canalisations de transport de matières dangereuses",
+      "libelleStatutCommune": "Risque Concerne",
+      "libelleStatutAdresse": "Risque Concerne",
+      "specifique": null
+    },
+    "pollutionSols": {
+      "present": true,
+      "libelle": "Pollution des sols",
+      "libelleStatutCommune": "Risque Concerne",
+      "libelleStatutAdresse": "Risque Concerne",
+      "specifique": null
+    }
+  }
+}

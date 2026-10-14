@@ -1,0 +1,135 @@
+{
+  "_lisez_moi": {
+    "objet": "Profil de l'investisseur : ses décisions d'investissement, une entrée par décision. Copier ce gabarit dans immo-data/profil.json et remplacer chaque valeur FICTIVE par la sienne, avec sa date et sa source (d'où vient la décision : note, échange, simulation bancaire...). Les scripts et le skill /immo lisent ce fichier ; ils n'y écrivent jamais. Une décision n'est pas un fait : la revoir quand la situation change. Les valeurs de ce gabarit sont FICTIVES : les remplacer toutes. Tant qu'une source porte encore « exemple fictif : à remplacer », immo_entree.py controle et immo_crible.py refusent le profil (code 2) ; un exemple d'exception d'annonce est donné dans « forme », la liste exceptions du gabarit est vide.",
+    "forme": "decisions : liste d'objets {cle, valeur, unite, date (AAAA-MM-JJ), source, exceptions}. exceptions : liste de {annonce (identifiant Leboncoin, en chaîne), portee (ce que l'exception lève), date}, vide par défaut. Exemple d'exception : {\"annonce\": \"<identifiant à 10 chiffres>\", \"portee\": \"plafond levé pour cette annonce\", \"date\": \"AAAA-MM-JJ\"}.",
+    "cles": {
+      "cible": "Types de bien recherchés, liste parmi immeuble_de_rapport et maison_de_ville : les deux seules cibles que engine/scripts/immo_crible.py sait traduire en types Leboncoin (immeuble_de_rapport : types 1 et 5 ; maison_de_ville : type 1). Pour une autre cible (appartement, maison isolée...), lancer le crible avec --types et les codes real_estate_type relevés sur la page de recherche. Un bien hors cible est écarté par le crible, sauf exception de l'annonce.",
+      "budget_fai": "Fourchette de budget frais d'agence inclus, {min, max} en euros (lue par le skill).",
+      "premier_achat_prix_max": "Plafond strict du premier achat : prix net vendeur + frais d'agence, en euros (lu par immo_crible.py et immo_entree.py controle ; au-delà : écarté au crible, avertissement au contrôle).",
+      "apport": "Apport visé, fraction du financement {min, max} (lu par le skill pour l'entrée du moteur).",
+      "montage_reference": "Montage de référence de l'étude : sci_is, lmnp_reel ou nom_propre (lu par le skill ; les autres montages restent comparés).",
+      "comptabilite_sci_dans_cash_flow": "true si le coût du comptable de la SCI est compté dans le cash-flow du bien ; false : le moteur reçoit 0 € de comptabilité avec un bloc sci (contrôlé par immo_entree.py controle).",
+      "seuil_confort_cf_mensuel": "Cash-flow mensuel de confort au scénario réaliste, avant impôt, en euros (lu par le skill pour le verdict).",
+      "division": "true si la division d'un bien en plusieurs logements est envisagée ; false : levier coupé, un bien déjà divisé s'étudie dans les deux configurations (lu par le skill).",
+      "vacance_realiste": "Vacance des trois scénarios, fraction de l'année (contrôlée par immo_entree.py controle : un écart exige --justification-vacance).",
+      "meuble_logements_2_pieces_ou_moins": "true : un scénario meublé est étudié pour les logements de 2 pièces ou moins (lu par le skill).",
+      "zone": "Zone de recherche : {commune_centre, code_insee, departement, communes}. communes : noms (ou objets {nom, code_insee}) des communes retenues autour du centre. Lue par immo_crible.py (drapeau « hors zone » sur une annonce d'une autre commune) et par le skill (marché, DMTO du département, zone locative de chaque commune dans params.json ou immo-data/params_local.json).",
+      "offre_sans_condition_suspensive_pret": "Choix de formuler l'offre d'achat sans condition suspensive de prêt (true), ou avec (false) ; null = non tranché, à demander à l'investisseur avant de rédiger l'offre (lu par le skill negoc)."
+    }
+  },
+  "decisions": [
+    {
+      "cle": "cible",
+      "valeur": [
+        "maison_de_ville"
+      ],
+      "unite": "types de bien",
+      "date": "2026-01-15",
+      "source": "exemple fictif : à remplacer",
+      "exceptions": []
+    },
+    {
+      "cle": "budget_fai",
+      "valeur": {
+        "min": 90000,
+        "max": 160000
+      },
+      "unite": "€ FAI",
+      "date": "2026-01-15",
+      "source": "exemple fictif : à remplacer",
+      "exceptions": []
+    },
+    {
+      "cle": "premier_achat_prix_max",
+      "valeur": 135000,
+      "unite": "€, prix net vendeur + frais d'agence, strictement inférieur",
+      "date": "2026-01-15",
+      "source": "exemple fictif : à remplacer",
+      "exceptions": []
+    },
+    {
+      "cle": "apport",
+      "valeur": {
+        "min": 0.05,
+        "max": 0.15
+      },
+      "unite": "fraction du financement",
+      "date": "2026-01-15",
+      "source": "exemple fictif : à remplacer",
+      "exceptions": []
+    },
+    {
+      "cle": "montage_reference",
+      "valeur": "lmnp_reel",
+      "unite": "montage",
+      "date": "2026-01-15",
+      "source": "exemple fictif : à remplacer",
+      "exceptions": []
+    },
+    {
+      "cle": "comptabilite_sci_dans_cash_flow",
+      "valeur": true,
+      "unite": "booléen",
+      "date": "2026-01-15",
+      "source": "exemple fictif : à remplacer",
+      "exceptions": []
+    },
+    {
+      "cle": "seuil_confort_cf_mensuel",
+      "valeur": 200,
+      "unite": "€/mois, scénario réaliste, avant impôt",
+      "date": "2026-01-15",
+      "source": "exemple fictif : à remplacer",
+      "exceptions": []
+    },
+    {
+      "cle": "division",
+      "valeur": true,
+      "unite": "booléen",
+      "date": "2026-01-15",
+      "source": "exemple fictif : à remplacer",
+      "exceptions": []
+    },
+    {
+      "cle": "vacance_realiste",
+      "valeur": 0.05,
+      "unite": "fraction de l'année, dans les trois scénarios",
+      "date": "2026-01-15",
+      "source": "exemple fictif : à remplacer",
+      "exceptions": []
+    },
+    {
+      "cle": "meuble_logements_2_pieces_ou_moins",
+      "valeur": false,
+      "unite": "booléen : scénario meublé étudié",
+      "date": "2026-01-15",
+      "source": "exemple fictif : à remplacer",
+      "exceptions": []
+    },
+    {
+      "cle": "zone",
+      "valeur": {
+        "commune_centre": "Fictibourg",
+        "code_insee": "99001",
+        "departement": "99",
+        "communes": [
+          "Fictibourg",
+          "Hameau-Exemple",
+          "Bois-le-Petit-Fictif"
+        ]
+      },
+      "unite": "zone de recherche",
+      "date": "2026-01-15",
+      "source": "exemple fictif : à remplacer (codes INSEE sur geo.api.gouv.fr ou l'INSEE)",
+      "exceptions": []
+    },
+    {
+      "cle": "offre_sans_condition_suspensive_pret",
+      "valeur": null,
+      "unite": "booléen ; null : à demander à l'investisseur",
+      "date": "2026-01-15",
+      "source": "exemple fictif : à remplacer",
+      "exceptions": []
+    }
+  ]
+}

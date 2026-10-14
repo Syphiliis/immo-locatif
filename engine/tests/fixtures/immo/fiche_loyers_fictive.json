@@ -1,0 +1,11 @@
+{
+  "_fictif": "Fiche de données ouvertes FICTIVE (bloc loyers seul, à la forme de la carte des loyers) : commune inventée, valeurs choisies pour le test (élasticité arrondie à -0,2365).",
+  "genere_le": "2026-10-04",
+  "commune": {"insee": "99001", "nom": "Fictibourg", "code_postal": "99001"},
+  "loyers": {
+    "appartement": {"valeur_m2": 13.2, "ip_bas": 10.5, "ip_haut": 16.1, "n": 700, "maille": "commune", "millesime": "2025", "charges": "comprises", "surface_type_m2": 52},
+    "appartement_t1_t2": {"valeur_m2": 15.1, "ip_bas": 12.2, "ip_haut": 18.3, "n": 420, "maille": "commune", "millesime": "2025", "charges": "comprises", "surface_type_m2": 37},
+    "appartement_t3_plus": {"valeur_m2": 12.9, "ip_bas": 10.1, "ip_haut": 15.8, "n": 280, "maille": "commune", "millesime": "2025", "charges": "comprises", "surface_type_m2": 72},
+    "maison": {"valeur_m2": 10.4, "ip_bas": 8.2, "ip_haut": 13.1, "n": 190, "maille": "commune", "millesime": "2025", "charges": "comprises", "surface_type_m2": 92}
+  }
+}

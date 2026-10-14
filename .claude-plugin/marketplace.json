@@ -1,0 +1,16 @@
+{
+  "name": "immo-locatif",
+  "owner": {
+    "name": "Syphiliis"
+  },
+  "plugins": [
+    {
+      "name": "immo-locatif",
+      "source": "./",
+      "description": "Étude d'un bien à vendre pour le louer, partout en France."
+    }
+  ],
+  "metadata": {
+    "description": "Plugin d'étude d'investissement locatif (France)."
+  }
+}
